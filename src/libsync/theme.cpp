@@ -217,7 +217,7 @@ bool Theme::singleSyncFolder() const
 
 bool Theme::multiAccount() const
 {
-    return true;
+    return false;
 }
 
 QString Theme::defaultServerFolder() const
@@ -227,7 +227,7 @@ QString Theme::defaultServerFolder() const
 
 QString Theme::helpUrl() const
 {
-    return QString::fromLatin1("https://doc.owncloud.org/desktop/%1.%2/").arg(MIRALL_VERSION_MAJOR).arg(MIRALL_VERSION_MINOR);
+    return QString::fromLatin1("http://yardim.itu.edu.tr");
 }
 
 QString Theme::conflictHelpUrl() const
@@ -242,7 +242,7 @@ QString Theme::conflictHelpUrl() const
 
 QString Theme::overrideServerUrl() const
 {
-    return QString();
+    return QString("https://kovan.itu.edu.tr");
 }
 
 QString Theme::forceConfigAuthType() const
@@ -532,7 +532,7 @@ QString Theme::wizardUrlPostfix() const
 
 QString Theme::wizardUrlHint() const
 {
-    return QString();
+    return QString("https://kovan.itu.edu.tr");
 }
 
 QString Theme::quotaBaseFolder() const
