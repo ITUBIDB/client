@@ -40,7 +40,6 @@ Request](https://github.com/ITUBIDB/kovan-desktop-client/pulls).
 
 The current maintainers of this repository are:
 
-* Semih Serhat Karakaya <karakayasemi@itu.edu.tr>
 * Ata Öz <ozata1@itu.edu.tr>
 
 Kovan Desktop Client is developed by the ownCloud community and branded by ITU BIDB for usage of Istanbul Technical University.

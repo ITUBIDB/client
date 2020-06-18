@@ -5,7 +5,7 @@ set( APPLICATION_DOMAIN     "kovan.itu.edu.tr" )
 set( APPLICATION_VENDOR     "ITU BIDB" )
 set( APPLICATION_UPDATE_URL "https://kovan.itu.edu.tr/kovan-clients/update.php" CACHE STRING "URL for updater" )
 set( APPLICATION_ICON_NAME  "owncloud" )
-set( APPLICATION_VIRTUALFILE_SUFFIX "Kovan" CACHE STRING "Virtual file suffix (not including the .)")
+set( APPLICATION_VIRTUALFILE_SUFFIX "owncloud" CACHE STRING "Virtual file suffix (not including the .)")
 
 set( LINUX_PACKAGE_SHORTNAME "kovan" )
 
