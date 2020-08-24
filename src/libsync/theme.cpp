@@ -217,7 +217,7 @@ bool Theme::singleSyncFolder() const
 
 bool Theme::multiAccount() const
 {
-    return true;
+    return false;
 }
 
 QString Theme::defaultServerFolder() const
@@ -227,7 +227,7 @@ QString Theme::defaultServerFolder() const
 
 QString Theme::helpUrl() const
 {
-    return QString::fromLatin1("https://doc.owncloud.org/desktop/%1.%2/").arg(MIRALL_VERSION_MAJOR).arg(MIRALL_VERSION_MINOR);
+    return QString::fromLatin1("https://yardim.itu.edu.tr");
 }
 
 QString Theme::conflictHelpUrl() const
@@ -242,7 +242,7 @@ QString Theme::conflictHelpUrl() const
 
 QString Theme::overrideServerUrl() const
 {
-    return QString();
+    return QString("https://kovan.itu.edu.tr");
 }
 
 QString Theme::forceConfigAuthType() const
@@ -293,7 +293,7 @@ bool Theme::monoIconsAvailable() const
 
 QString Theme::updateCheckUrl() const
 {
-    return QLatin1String("https://updates.owncloud.com/client/");
+    return QLatin1String("https://kovan.itu.edu.tr/kovan-clients/update.php");
 }
 
 qint64 Theme::newBigFolderSizeLimit() const
@@ -317,7 +317,7 @@ QString Theme::gitSHA1() const
     QString devString;
 #ifdef GIT_SHA1
     const QString githubPrefix(QLatin1String(
-        "https://github.com/owncloud/client/commit/"));
+        "https://github.com/ITUBIDB/kovan-desktop-client/commit/"));
     const QString gitSha1(QLatin1String(GIT_SHA1));
     devString = QCoreApplication::translate("ownCloudTheme::about()",
         "<p><small>Built from Git revision <a href=\"%1\">%2</a>"
@@ -532,7 +532,7 @@ QString Theme::wizardUrlPostfix() const
 
 QString Theme::wizardUrlHint() const
 {
-    return QString();
+    return QString("https://kovan.itu.edu.tr");
 }
 
 QString Theme::quotaBaseFolder() const
