@@ -40,10 +40,12 @@ https://github.com/ITUBIDB/kovan-desktop-client.
 * Fix linking problems `sudo bash ~/kovan-desktop-client/admin/osx/macdeployfixlinks.sh ~/kovan-desktop-client/build/bin/Kovan.app`
 * Fix permissions for executables  `chmod 755 ~/kovan-desktop-client/build/bin/Kovan.app/Contents/MacOS/*`
 * Fix permissions for frameworks `for dirname in $(ls -1 ~/kovan-desktop-client/build/bin/Kovan.app/Contents/Frameworks); do fname=${dirname//.framework}; find ~/kovan-desktop-client/build/bin/Kovan.app/Contents/Frameworks/${dirname} -name ${fname} -type f -exec chmod 755 {} \; ; done`
+* Fix ownership for all files `sudo chown -R $USER ~/kovan-desktop-client/build/bin/Kovan.app`
 
 ### Signing Executables
 * Generate and install "Developer ID Application" certificate to login chain with name as "Developer ID Application: Istanbul Teknik Universitesi (XXXXXX)"
-* Sign Kovan binary `codesign --deep -o runtime -s "Developer ID Application: Istanbul Teknik Universitesi (XXXXXX)" bin/Kovan.app/Contents/MacOS/Kovan`
+* First sign Sparkle Autoupdate `codesign --deep --force -o runtime -s "Developer ID Application: Istanbul Teknik Universitesi (XXXXXX)" bin/Kovan.app/Contents/Frameworks/Sparkle.framework/Versions/A/Resources/Autoupdate.app`
+* Sign Kovan.app `codesign --deep --force -o runtime -s "Developer ID Application: Istanbul Teknik Universitesi (XXXXXX)" bin/Kovan.app`
 
 ### Packaging the client
 * Install Packages from http://s.sudre.free.fr/Software/Packages/about.html
@@ -53,8 +55,8 @@ https://github.com/ITUBIDB/kovan-desktop-client.
 * Install certificate to login chain with name as "Developer ID Installer: Istanbul Teknik Universitesi (XXXXXX)"
 * Run `productsign --sign  "Developer ID Installer: Istanbul Teknik Universitesi (XXXXXX)" bin/Kovan-qt5.15.0-2.6.3.0.pkg Kovan-2.6.3.pkg`
 * Generate a app-specific password from Apple account. Note the password for notarization.
-* Submit signed package to Apple for notarization `xcrun altool --notarize-app --primary-bundle-id "tr.edu.itu.kovan-desktop" --file Kovan-2.6.3.pkg --username "APPLE-DEVELOPER-ID-ACCOUNT NAME" --password "APP-SPECIFIC-PASSWORD"`
-* Check notarization status `xcrun altool --notarization-info "REQUEST-UUID" -u "APPLE-DEVELOPER-ID-ACCOUNT NAME"`
+* Submit signed package to Apple for notarization `xcrun altool --notarize-app --primary-bundle-id "tr.edu.itu.kovan-desktop" --file Kovan-2.6.3.pkg --username "APPLE-DEVELOPER-ID-ACCOUNT-NAME" --password "APP-SPECIFIC-PASSWORD"`
+* Check notarization status `xcrun altool --notarization-info "REQUEST-UUID" -u "APPLE-DEVELOPER-ID-ACCOUNT-NAME"`
 * After "Status: success" message, staple the notarization ticket to installer `xcrun stapler staple Kovan-2.6.3.pkg`
 
 ## Windows Building steps (Tested with Windows 10 x64)
